@@ -1,0 +1,47 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+body {
+    background: url("images/mobile-bg.png") no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+    font-family: system-ui, sans-serif;
+    overflow: hidden;
+}
+
+#monitor-area {
+    position: absolute;
+    top: 55%;
+    transform: translateY(-50%);
+    width: 100%;
+    text-align: center;
+}
+
+
+#rsvp-button {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+
+    font-weight: 900;
+    color: #ff6f00;
+    text-shadow: 0 0 18px rgba(255, 115, 0, 0.9);
+    font-size: clamp(2rem, 6vw, 3rem);
+    text-align: center;
+
+    margin-left: 31%;
+}
+
+@media (orientation: landscape) {
+    #monitor-area {
+        top: 60%;
+        width: 55vw;
+        height: 40vh;
+    }
+}
