@@ -6,10 +6,15 @@
   --btn-blue-bot: rgba(18,32,62,0.98);
   --btn-blue-border: rgba(10,18,34,0.85);
   --btn-blue-inset: rgba(255, 210, 140, 0.20);
+
+  --btn-text: rgba(255, 210, 140, 0.95);
 }
 
-/* base */
+/* =========================
+   Base / Layout
+========================= */
 *{ box-sizing:border-box; }
+
 html, body{
   height:100%;
   margin:0;
@@ -18,7 +23,6 @@ html, body{
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* centers the image frame */
 .stage{
   min-height: 100svh;
   display: grid;
@@ -26,18 +30,16 @@ html, body{
   padding: 12px;
 }
 
-/* IMPORTANT: this gives the section a visible size */
 .frame{
   position: relative;
   width: min(980px, 100%);
-  aspect-ratio: 2 / 3;          /* important for height */
+  aspect-ratio: 2 / 3;
   border-radius: 22px;
   overflow: hidden;
   background: #000;
   box-shadow: 0 20px 60px rgba(0,0,0,.55);
 }
 
-/* IMPORTANT: your background image */
 .bg{
   position: absolute;
   inset: 0;
@@ -45,7 +47,9 @@ html, body{
   transform: scale(1.01);
 }
 
-/* ===== MVP Poster Button ===== */
+/* =========================
+   Buttons (shared style)
+========================= */
 .poster-btn{
   position:absolute;
   border:none;
@@ -54,13 +58,9 @@ html, body{
 
   font-family: Impact, "Anton", "Bebas Neue", system-ui, sans-serif;
   font-weight: 900;
-  letter-spacing: 0.08em;
   text-transform: uppercase;
 
-  border-radius: 10px;
-  padding: 9px 10px;
-
-  color: rgba(255, 206, 120, 0.95);
+  color: var(--btn-text);
 
   background:
     radial-gradient(circle at 30% 20%, rgba(255,255,255,0.10), transparent 40%),
@@ -72,28 +72,23 @@ html, body{
     0 0 0 2px var(--btn-blue-border),
     0 0 0 1px var(--btn-blue-inset) inset;
 
-
   text-shadow: 0 2px 0 rgba(0,0,0,0.35);
-
 }
 
-
-/* MVP: smaller + less bulky */
+/* =========================
+   Individual button placement
+========================= */
 #btnMvp{
   left: 74%;
   top: 16%;
-
   font-size: clamp(12px, 3.3vw, 16px);
-  padding: 5px 17px;            /* <— smaller horizontal padding */
+  padding: 5px 17px;
   letter-spacing: 0.08em;
   border-radius: 10px;
-
-  transform: rotate(2deg);      /* tilt only */
+  transform: rotate(2deg);
   transform-origin: center;
 }
 
-
-/* lighter shadow so it doesn’t look massive */
 #btnMvp.poster-btn{
   box-shadow:
     0 4px 10px rgba(0,0,0,0.30),
@@ -101,46 +96,21 @@ html, body{
     0 0 0 1px rgba(255, 210, 140, 0.10) inset;
 }
 
-/* =========================
-   FutSoul button (MVP style)
-========================= */
-
 .fs-btn{
-  position: absolute;
-
   left: 46%;
   top: 41%;
-
-  /* center the button on that anchor point + tilt */
   transform: translate(-50%, -50%) rotate(2.5deg);
   transform-origin: center;
 
   font-size: clamp(18px, 5vw, 26px);
-  padding: 3px 3px; /* 3px 3px is tiny—this will feel better */
+  padding: 3px 3px;
   letter-spacing: 0.06em;
   border-radius: 14px;
-
-  color: rgba(255, 210, 140, 0.95);
-
-  background:
-    radial-gradient(circle at 30% 20%, rgba(255,255,255,0.10), transparent 40%),
-    radial-gradient(circle at 70% 80%, rgba(0,0,0,0.18), transparent 45%),
-    linear-gradient(180deg, var(--btn-blue-top), var(--btn-blue-bot));
-
-  box-shadow:
-    0 10px 22px rgba(0,0,0,0.45),
-    0 0 0 2px var(--btn-blue-border),
-    0 0 0 1px var(--btn-blue-inset) inset;
 }
 
-/* Sponsor “ANNOUNCEMENT” button (same style as MVP/FS) */
 .sponsor-btn{
-  position: absolute;
-
-  /* TUNE THESE */
   left: 27%;
   top: 69%;
-
   transform: translate(-50%, -50%) rotate(6deg);
   transform-origin: center;
 
@@ -148,32 +118,11 @@ html, body{
   padding: 2px 20px;
   border-radius: 12px;
   letter-spacing: 0.12em;
-
-  /* Same colors as MVP/FS */
-  color: rgba(255, 210, 140, 0.95);
-
-  background:
-    radial-gradient(circle at 30% 20%, rgba(255,255,255,0.10), transparent 40%),
-    radial-gradient(circle at 70% 80%, rgba(0,0,0,0.18), transparent 45%),
-    linear-gradient(180deg, var(--btn-blue-top), var(--btn-blue-bot));
-
-  box-shadow:
-    0 10px 22px rgba(0,0,0,0.45),
-    0 0 0 2px var(--btn-blue-border),
-    0 0 0 1px var(--btn-blue-inset) inset;
 }
 
-/* =========================
-   TO-DO LIST button
-   ========================= */
-
 .todo-btn{
-  position: absolute;
-
-  /* TUNE THESE */
   left: 75%;
   top: 51%;
-
   transform: translate(-50%, -50%) rotate(6deg);
   transform-origin: center;
 
@@ -181,30 +130,21 @@ html, body{
   padding: 1px 14px;
   border-radius: 12px;
   letter-spacing: 0.10em;
-
-  /* Same color system as other buttons */
-  color: rgba(255, 210, 140, 0.95);
-
-  background:
-    radial-gradient(circle at 30% 20%, rgba(255,255,255,0.10), transparent 40%),
-    radial-gradient(circle at 70% 80%, rgba(0,0,0,0.18), transparent 45%),
-    linear-gradient(180deg, var(--btn-blue-top), var(--btn-blue-bot));
-
-
 }
 
-/* ===== Modal style (matches your screenshots) ===== */
+/* =========================
+   Modal (centered)
+========================= */
 .overlay{
   position: fixed;
   inset: 0;
   display: none;
-  place-items: center; /* ✅ centers modal */
+  place-items: center;
   padding: 22px 14px;
   background: rgba(0,0,0,0.45);
   backdrop-filter: blur(10px);
   z-index: 999;
 }
-
 
 .overlay.open{ display:grid; }
 
@@ -222,7 +162,7 @@ html, body{
   align-items:center;
   justify-content:space-between;
   gap: 14px;
-  padding: 18px 18px;
+  padding: 18px;
   border-bottom: 1px solid rgba(255,255,255,0.10);
 }
 
@@ -242,27 +182,26 @@ html, body{
   cursor: pointer;
 }
 
-/* body text style like your screenshot */
 .modalBody{
-  padding: 18px 18px 22px 18px;
+  padding: 18px 18px 22px;
   color: rgba(255,255,255,0.72);
   font-size: clamp(15px, 3.4vw, 20px);
   line-height: 1.45;
 }
 
-.modalLine{
-  margin-top: 2px;
-}
+.modalLine{ margin-top: 2px; }
 
-/* ===== Modal CTA Wrapper ===== */
+/* =========================
+   Modal CTA
+========================= */
 .modal-cta{
   margin-top: 18px;
   display: flex;
   justify-content: flex-start;
 }
 
-/* ===== Get in Touch Button ===== */
 .contact-btn{
+  text-decoration: none; /* removes underline */
   border: none;
   cursor: pointer;
 
@@ -273,7 +212,7 @@ html, body{
   font-weight: 600;
   letter-spacing: 0.02em;
 
-  color: rgba(255, 210, 140, 0.95);
+  color: var(--btn-text);
 
   background:
     radial-gradient(circle at 30% 20%, rgba(255,255,255,0.08), transparent 40%),
@@ -288,7 +227,6 @@ html, body{
   transition: box-shadow 160ms ease, filter 160ms ease;
 }
 
-/* hover only — NO movement */
 .contact-btn:hover{
   box-shadow:
     0 10px 20px rgba(0,0,0,0.55),
@@ -296,10 +234,7 @@ html, body{
     0 0 20px rgba(255,170,40,0.18);
 }
 
-/* no jump on click */
-.contact-btn:active{
-  filter: brightness(0.98);
-}
+.contact-btn:active{ filter: brightness(0.98); }
 
 .contact-btn:focus-visible{
   outline: none;

@@ -1,16 +1,13 @@
 # 🥅 FutSoul — community soccer pickup & rsvp platform
 
-FutSoul is a mobile web platform that enables players to rsvp for pickup sessions, access session photos, and get notified about future games. The site emphasizes a mobile first design and intro animation that highlights community and player identity.
+FutSoul's mission is to bring the beautiful game back to the community. As access to fields become limited and organizing games gets harder, FutSoul creates a space where players can simply show up, play, and reconnect through the game.
 
 ## 🎯 Features
 
+- 📱 Optimized for mobile use , otherwise minimize browser
 - 📅 RSVP for upcoming soccer sessions
-- 🔔 Option to stay informed about future sessions
+- 🔔 Learn more about our sponsor of the week and mvp of the week!
 - 💵 $5 session fee transparency for equipment costs
-- 🖼 Animated intro showing player culture & community
-- 📱 Optimized for mobile use
-- 🔐 Supabase data backend
-- 🌐 Hosted publicly via GitHub Pages
 
 ## 🧠 Technology Stack
 
@@ -19,25 +16,12 @@ HTML
 CSS  
 JavaScript  
 
-**Backend:**  
-Supabase Database & API
-
 **Deployment:**  
 GitHub Pages
 
-## 🧾 RSVP Data Included
-
-- Name 
-- Email 
-- Skill level (casual or competitive)
-- Attendance confirmation
-- Notification preference for future sessions
-
-All data is used exclusively for FutSoul game organization and communication.
-
 ## 💵 Session Fee Transparency
 
-Each session includes a $5 player contribution which goes toward:
+Each session includes a $3-5 player contribution which goes toward:
 
 - Soccer balls, goals, scrimmage pinnies, and cones  
 - Any gear replacement   

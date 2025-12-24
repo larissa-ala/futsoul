@@ -1,48 +1,80 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FutSoul</title>
-  <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FutSoul</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-</head>
+  <body>
+    <main class="stage">
+      <section class="frame" aria-label="FutSoul landing">
+        <div class="bg" aria-hidden="true"></div>
 
-<body>
-  <main class="stage">
-    <section class="frame" aria-label="FutSoul landing">
-      <div class="bg" aria-hidden="true"></div>
-
-        <button class="poster-btn mvp-btn" id="btnMvp" data-open="mvp" aria-label="View this week's MVP">
-        MVP
+        <!-- Buttons -->
+        <button
+          id="btnMvp"
+          class="poster-btn mvp-btn"
+          data-open="mvp"
+          aria-label="View this week's MVP"
+          type="button"
+        >
+          MVP
         </button>
 
-        <button class="poster-btn fs-btn" id="btnFutSoul" data-open="about" aria-label="Learn about FutSoul">
-        FS
+        <button
+          id="btnFutSoul"
+          class="poster-btn fs-btn"
+          data-open="about"
+          aria-label="Learn about FutSoul"
+          type="button"
+        >
+          FS
         </button>
 
-        <button class="poster-btn sponsor-btn" id="btnAnnouncement" data-open="sponsor" aria-label="Sponsor announcement">
-        ANNOUNCEMENT
+        <button
+          id="btnAnnouncement"
+          class="poster-btn sponsor-btn"
+          data-open="sponsor"
+          aria-label="Sponsor announcement"
+          type="button"
+        >
+          ANNOUNCEMENT
         </button>
 
-        <button class="poster-btn todo-btn" id="btnTodo" data-open="signup" aria-label="Sign up for a session">
-        TO DO
+        <button
+          id="btnTodo"
+          class="poster-btn todo-btn"
+          data-open="signup"
+          aria-label="Sign up for a session"
+          type="button"
+        >
+          TO DO
         </button>
+      </section>
+    </main>
 
+    <!-- Modal -->
+    <div
+      class="overlay"
+      id="overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitle"
+    >
+      <div class="modal">
+        <div class="modalHeader">
+          <h2 id="modalTitle">Title</h2>
+          <button class="closeBtn" id="closeBtn" aria-label="Close" type="button">
+            Close
+          </button>
+        </div>
 
-    </section>
-  </main>
-
-  <!-- Modal -->
-  <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal">
-      <div class="modalHeader">
-        <h2 id="modalTitle">Title</h2>
-        <button class="closeBtn" id="closeBtn" aria-label="Close">Close</button>
+        <div class="modalBody" id="modalBody"></div>
       </div>
-      <div class="modalBody" id="modalBody"></div>
     </div>
-  </div>
-<script src="script.js"></script>
-</body>
+
+    <script src="script.js"></script>
+  </body>
 </html>
