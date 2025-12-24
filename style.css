@@ -1,155 +1,309 @@
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100vw;
-  height: 100vh;
+:root{
+  --bg:#070707;
+  --text:rgba(255,255,255,.92);
+
+  --btn-blue-top: rgba(25,45,85,0.98);
+  --btn-blue-bot: rgba(18,32,62,0.98);
+  --btn-blue-border: rgba(10,18,34,0.85);
+  --btn-blue-inset: rgba(255, 210, 140, 0.20);
 }
 
-body {
-  background: url("images/mobile-bg.png") no-repeat center center fixed;
-  background-size: cover;
+/* base */
+*{ box-sizing:border-box; }
+html, body{
+  height:100%;
+  margin:0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* centers the image frame */
+.stage{
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 12px;
+}
+
+/* IMPORTANT: this gives the section a visible size */
+.frame{
   position: relative;
-  font-family: system-ui, sans-serif;
+  width: min(980px, 100%);
+  aspect-ratio: 2 / 3;          /* important for height */
+  border-radius: 22px;
   overflow: hidden;
+  background: #000;
+  box-shadow: 0 20px 60px rgba(0,0,0,.55);
 }
 
-/* Make the monitor area a real box so children can anchor to it */
-#monitor-area {
-  position: absolute;
-  left: 0;
-  right: 0;
-
-  top: 55%;
-  transform: translateY(-50%);
-
-  /* IMPORTANT: give it dimensions */
-  width: 100%;
-  height: 34vh;           /* adjust if your monitor is taller/shorter */
-  text-align: center;
-
-  /* This makes sticky note position relative to the monitor-area */
-  pointer-events: none;   /* prevents empty area blocking clicks */
-}
-
-/* Re-enable clicks on the actual links inside */
-#monitor-area a {
-  pointer-events: auto;
-}
-
-#rsvp-button {
+/* IMPORTANT: your background image */
+.bg{
   position: absolute;
   inset: 0;
-  margin: auto;
-  width: fit-content;
-  height: fit-content;
+  background: url("images/desk.png") center/cover no-repeat;
+  transform: scale(1.01);
+}
 
+/* ===== MVP Poster Button ===== */
+.poster-btn{
+  position:absolute;
+  border:none;
+  cursor:pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  font-family: Impact, "Anton", "Bebas Neue", system-ui, sans-serif;
   font-weight: 900;
-  color: #ff6f00;
-  text-shadow: 0 0 18px rgba(255, 115, 0, 0.9);
-  font-size: clamp(2rem, 6vw, 3rem);
-  text-align: center;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 
-  /* Your existing offset */
-  margin-left: 31%;
-}
+  border-radius: 10px;
+  padding: 9px 10px;
 
-@media (orientation: landscape) {
-  #monitor-area {
-    top: 60%;
-    width: 55vw;
-    height: 40vh;
-    left: 50%;
-    right: auto;
-    transform: translate(-50%, -50%);
-  }
-}
+  color: rgba(255, 206, 120, 0.95);
 
-.sticky-note {
-  position: absolute;
-  right: 2%;
-  bottom: 50%;
-
-  width: 60px;
-  min-height: 55px;
-  padding: 10px;
-
-  background: #ffd966;
-  color: #2b2b2b;
-
-  font-family: 'Patrick Hand', cursive; /* ✨ handwritten */
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.25;
-
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-
-  text-decoration: none;
-  border-radius: 4px;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255,255,255,0.10), transparent 40%),
+    radial-gradient(circle at 70% 80%, rgba(0,0,0,0.18), transparent 45%),
+    linear-gradient(180deg, var(--btn-blue-top), var(--btn-blue-bot));
 
   box-shadow:
-    0 5px 10px rgba(0,0,0,0.25),
-    inset 0 -2px 0 rgba(0,0,0,0.12);
+    0 10px 22px rgba(0,0,0,0.45),
+    0 0 0 2px var(--btn-blue-border),
+    0 0 0 1px var(--btn-blue-inset) inset;
 
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  z-index: 5;
+
+  text-shadow: 0 2px 0 rgba(0,0,0,0.35);
+
 }
 
-.sticky-note:hover {
-  transform: scale(1.03);
+
+/* MVP: smaller + less bulky */
+#btnMvp{
+  left: 74%;
+  top: 16%;
+
+  font-size: clamp(12px, 3.3vw, 16px);
+  padding: 5px 17px;            /* <— smaller horizontal padding */
+  letter-spacing: 0.08em;
+  border-radius: 10px;
+
+  transform: rotate(2deg);      /* tilt only */
+  transform-origin: center;
+}
+
+
+/* lighter shadow so it doesn’t look massive */
+#btnMvp.poster-btn{
   box-shadow:
-    0 8px 14px rgba(0,0,0,0.3),
-    inset 0 -2px 0 rgba(0,0,0,0.15);
+    0 4px 10px rgba(0,0,0,0.30),
+    0 0 0 1px rgba(10,18,34,0.75),
+    0 0 0 1px rgba(255, 210, 140, 0.10) inset;
 }
 
-/* Mobile sizing */
-@media (max-width: 420px) {
-  .mvp-frame-wrap {
-    width: 125px;
-    height: 125px;
-    bottom: -15%;
-  }
-}
+/* =========================
+   FutSoul button (MVP style)
+========================= */
 
-.mvp-frame-wrap {
+.fs-btn{
   position: absolute;
-  left: 15%;
-  bottom: -15%;
-  width: 125px;
-  height: 125px;
-  z-index: 3;
+
+  left: 46%;
+  top: 41%;
+
+  /* center the button on that anchor point + tilt */
+  transform: translate(-50%, -50%) rotate(2.5deg);
+  transform-origin: center;
+
+  font-size: clamp(18px, 5vw, 26px);
+  padding: 3px 3px; /* 3px 3px is tiny—this will feel better */
+  letter-spacing: 0.06em;
+  border-radius: 14px;
+
+  color: rgba(255, 210, 140, 0.95);
+
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255,255,255,0.10), transparent 40%),
+    radial-gradient(circle at 70% 80%, rgba(0,0,0,0.18), transparent 45%),
+    linear-gradient(180deg, var(--btn-blue-top), var(--btn-blue-bot));
+
+  box-shadow:
+    0 10px 22px rgba(0,0,0,0.45),
+    0 0 0 2px var(--btn-blue-border),
+    0 0 0 1px var(--btn-blue-inset) inset;
 }
 
-/* Photo area (tweak these 4 values to fit your frame opening) */
-.mvp-window {
+/* Sponsor “ANNOUNCEMENT” button (same style as MVP/FS) */
+.sponsor-btn{
   position: absolute;
-  left: 18%;
-  top: 12%;
-  width: 64%;
-  height: 66%;
-  overflow: hidden;
-  border-radius: 6px;
-  z-index: 2; /* photo ABOVE frame image if frame middle isn't truly transparent */
+
+  /* TUNE THESE */
+  left: 27%;
+  top: 69%;
+
+  transform: translate(-50%, -50%) rotate(6deg);
+  transform-origin: center;
+
+  font-size: clamp(12px, 2.8vw, 15px);
+  padding: 2px 20px;
+  border-radius: 12px;
+  letter-spacing: 0.12em;
+
+  /* Same colors as MVP/FS */
+  color: rgba(255, 210, 140, 0.95);
+
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255,255,255,0.10), transparent 40%),
+    radial-gradient(circle at 70% 80%, rgba(0,0,0,0.18), transparent 45%),
+    linear-gradient(180deg, var(--btn-blue-top), var(--btn-blue-bot));
+
+  box-shadow:
+    0 10px 22px rgba(0,0,0,0.45),
+    0 0 0 2px var(--btn-blue-border),
+    0 0 0 1px var(--btn-blue-inset) inset;
 }
 
-.mvp-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
+/* =========================
+   TO-DO LIST button
+   ========================= */
 
-/* Frame overlay always on top */
-.mvp-frame-img {
+.todo-btn{
   position: absolute;
+
+  /* TUNE THESE */
+  left: 75%;
+  top: 51%;
+
+  transform: translate(-50%, -50%) rotate(6deg);
+  transform-origin: center;
+
+  font-size: clamp(11px, 2.6vw, 14px);
+  padding: 1px 14px;
+  border-radius: 12px;
+  letter-spacing: 0.10em;
+
+  /* Same color system as other buttons */
+  color: rgba(255, 210, 140, 0.95);
+
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255,255,255,0.10), transparent 40%),
+    radial-gradient(circle at 70% 80%, rgba(0,0,0,0.18), transparent 45%),
+    linear-gradient(180deg, var(--btn-blue-top), var(--btn-blue-bot));
+
+
+}
+
+/* ===== Modal style (matches your screenshots) ===== */
+.overlay{
+  position: fixed;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  z-index: 3;
-  pointer-events: none;
+  display: none;
+  place-items: center; /* ✅ centers modal */
+  padding: 22px 14px;
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(10px);
+  z-index: 999;
 }
 
+
+.overlay.open{ display:grid; }
+
+.modal{
+  width: min(980px, 100%);
+  border-radius: 22px;
+  overflow: hidden;
+  background: rgba(0,0,0,0.68);
+  border: 1px solid rgba(255,255,255,0.14);
+  box-shadow: 0 18px 60px rgba(0,0,0,0.55);
+}
+
+.modalHeader{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 14px;
+  padding: 18px 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+}
+
+.modalHeader h2{
+  margin:0;
+  font-size: clamp(18px, 3.8vw, 28px);
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+.closeBtn{
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.92);
+  padding: 10px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+/* body text style like your screenshot */
+.modalBody{
+  padding: 18px 18px 22px 18px;
+  color: rgba(255,255,255,0.72);
+  font-size: clamp(15px, 3.4vw, 20px);
+  line-height: 1.45;
+}
+
+.modalLine{
+  margin-top: 2px;
+}
+
+/* ===== Modal CTA Wrapper ===== */
+.modal-cta{
+  margin-top: 18px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* ===== Get in Touch Button ===== */
+.contact-btn{
+  border: none;
+  cursor: pointer;
+
+  padding: 10px 18px;
+  border-radius: 14px;
+
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+
+  color: rgba(255, 210, 140, 0.95);
+
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255,255,255,0.08), transparent 40%),
+    radial-gradient(circle at 70% 80%, rgba(0,0,0,0.22), transparent 45%),
+    linear-gradient(180deg, rgba(25,45,85,0.95), rgba(18,32,62,0.95));
+
+  box-shadow:
+    0 6px 14px rgba(0,0,0,0.45),
+    0 0 0 1px rgba(10,18,34,0.85),
+    0 0 0 1px rgba(255,210,140,0.12) inset;
+
+  transition: box-shadow 160ms ease, filter 160ms ease;
+}
+
+/* hover only — NO movement */
+.contact-btn:hover{
+  box-shadow:
+    0 10px 20px rgba(0,0,0,0.55),
+    0 0 0 1px rgba(10,18,34,0.9),
+    0 0 20px rgba(255,170,40,0.18);
+}
+
+/* no jump on click */
+.contact-btn:active{
+  filter: brightness(0.98);
+}
+
+.contact-btn:focus-visible{
+  outline: none;
+  box-shadow:
+    0 0 0 2px rgba(255,170,40,0.35),
+    0 6px 14px rgba(0,0,0,0.45);
+}

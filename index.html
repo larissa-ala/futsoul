@@ -1,37 +1,48 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>futsoul</title>
-  <link rel="preload" href="images/futsoul-bg.png" as="image">
-  <link rel="stylesheet" href="intro.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FutSoul</title>
+  <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
+  <main class="stage">
+    <section class="frame" aria-label="FutSoul landing">
+      <div class="bg" aria-hidden="true"></div>
 
-    <div id="intro-container">
+        <button class="poster-btn mvp-btn" id="btnMvp" data-open="mvp" aria-label="View this week's MVP">
+        MVP
+        </button>
 
-        <div class="lower-zone">
-            <img class="polaroid" id="p1"  src="images/intro1.jpeg">
-            <img class="polaroid" id="p2"  src="images/intro2.jpeg">
-            <img class="polaroid" id="p3"  src="images/intro3.jpeg">
-            <img class="polaroid" id="p4"  src="images/intro4.jpeg">
-            <img class="polaroid" id="p5"  src="images/intro5.jpeg">
-            <img class="polaroid" id="p6"  src="images/intro6.jpeg">
-            <img class="polaroid" id="p7"  src="images/intro7.jpeg">
-            <img class="polaroid" id="p8"  src="images/intro8.jpeg">
-            <img class="polaroid" id="p9"  src="images/intro9.jpeg">
-            <img class="polaroid" id="p10" src="images/intro10.jpeg">
-            <img class="polaroid" id="p11" src="images/intro1.jpeg">
-            <img class="polaroid" id="p12" src="images/intro2.jpeg">
-            <img class="polaroid" id="p13" src="images/intro3.jpeg">
-            <img class="polaroid" id="p14" src="images/intro4.jpeg">
-            <img class="polaroid" id="p15" src="images/intro5.jpeg">
-        </div>
+        <button class="poster-btn fs-btn" id="btnFutSoul" data-open="about" aria-label="Learn about FutSoul">
+        FS
+        </button>
 
+        <button class="poster-btn sponsor-btn" id="btnAnnouncement" data-open="sponsor" aria-label="Sponsor announcement">
+        ANNOUNCEMENT
+        </button>
+
+        <button class="poster-btn todo-btn" id="btnTodo" data-open="signup" aria-label="Sign up for a session">
+        TO DO
+        </button>
+
+
+    </section>
+  </main>
+
+  <!-- Modal -->
+  <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal">
+      <div class="modalHeader">
+        <h2 id="modalTitle">Title</h2>
+        <button class="closeBtn" id="closeBtn" aria-label="Close">Close</button>
+      </div>
+      <div class="modalBody" id="modalBody"></div>
     </div>
-
-<script src="intro.js"></script>
-
+  </div>
+<script src="script.js"></script>
 </body>
 </html>
