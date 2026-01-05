@@ -1,80 +1,176 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>FutSoul</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FutSoul</title>
 
-  <body>
-    <main class="stage">
-      <section class="frame" aria-label="FutSoul landing">
-        <div class="bg" aria-hidden="true"></div>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
 
-        <!-- Buttons -->
-        <button
-          id="btnMvp"
-          class="poster-btn mvp-btn"
-          data-open="mvp"
-          aria-label="View this week's MVP"
-          type="button"
-        >
-          MVP
+<body>
+
+  <!-- top bar -->
+  <header class="topbar">
+    <div class="container topbar-inner">
+
+      <a class="brand" href="#home" aria-label="FutSoul home">
+        <span class="brand-mark">FutSoul</span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Primary navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#winners">KOTP</a>
+        <a href="#signup">Session Sign Up</a>
+        <a href="#sponsors">Sponsors</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="topbar-actions">
+        <a class="btn btn-primary" href="#signup">Sign up for a session!</a>
+
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-controls="nav" aria-expanded="false">
+          <span></span><span></span><span></span>
         </button>
+      </div>
 
-        <button
-          id="btnFutSoul"
-          class="poster-btn fs-btn"
-          data-open="about"
-          aria-label="Learn about FutSoul"
-          type="button"
-        >
-          FS
-        </button>
+    </div>
+  </header>
 
-        <button
-          id="btnAnnouncement"
-          class="poster-btn sponsor-btn"
-          data-open="sponsor"
-          aria-label="Sponsor announcement"
-          type="button"
-        >
-          ANNOUNCEMENT
-        </button>
+  <!-- Hero -->
+  <main id="home" class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
 
-        <button
-          id="btnTodo"
-          class="poster-btn todo-btn"
-          data-open="signup"
-          aria-label="Sign up for a session"
-          type="button"
-        >
-          TO DO
-        </button>
-      </section>
-    </main>
+    <div class="container hero-content">
+      <div class="hero-left">
+        <h1 class="hero-title">
+          Bringing the<br>
+          Beautiful Game<br>
+          Back to the Community
+        </h1>
 
-    <!-- Modal -->
-    <div
-      class="overlay"
-      id="overlay"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="modalTitle"
-    >
-      <div class="modal">
-        <div class="modalHeader">
-          <h2 id="modalTitle">Title</h2>
-          <button class="closeBtn" id="closeBtn" aria-label="Close" type="button">
-            Close
-          </button>
+        <div class="hero-cta">
+          <a class="btn btn-ghost" href="#signup" id="sessionFormatBtn">Session Format</a>
+          <a class="btn btn-ghost" href="#signup" id="upcomingSessionsBtn">Upcoming Sessions</a>
         </div>
-
-        <div class="modalBody" id="modalBody"></div>
       </div>
     </div>
 
-    <script src="script.js"></script>
-  </body>
+    <div class="hero-fade" aria-hidden="true"></div>
+  </main>
+
+  <!-- Section Mount Points -->
+  <div id="mount-about"></div>
+  <div id="mount-kotp"></div>
+  <div id="mount-signup"></div>
+  <div id="mount-sponsors"></div>
+
+  <!-- Footer -->
+  <footer class="footer" id="contact">
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> FutSoul</div>
+
+      <div class="footer-links">
+        <a href="mailto:futsoulcommunity@gmail.com">Contact Us</a>
+        <a href="mailto:futsoulcommunity@gmail.com">Become a Sponsor</a>
+        <a href="https://instagram.com/futsoul.bay" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== -->
+  <!-- Modals -->
+  <!-- ===================== -->
+
+  <!-- Session Format Modal -->
+  <div class="modal-overlay" id="sessionModal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="sessionModalTitle">
+      <div class="modal-header">
+        <h3 class="modal-title" id="sessionModalTitle">Session Format</h3>
+        <button class="modal-close" id="sessionModalClose" aria-label="Close">Close</button>
+      </div>
+
+      <div class="modal-body">
+        <p>
+          FutSoul sessions are designed to make it easy to show up and play — no “are there enough players?”,
+          no “who’s bringing a ball?”. Just a smooth, organized run with a street-style vibe.
+        </p>
+
+        <div class="modal-list">
+          <div><strong>Format:</strong> First to 3 goals or 5 minutes — winners stay on; ties mean both teams rotate off</div>
+          <div><strong>Teams:</strong> 4v4 / 5v5 — teams are made on site</div>
+          <div><strong>All levels:</strong> Everyone welcome</div>
+          <div><strong>Compete:</strong> Play to become the <em>Kings of the Pitch</em></div>
+        </div>
+
+        <div class="modal-cta">
+          <a class="btn btn-primary" href="#signup" id="sessionModalCta">Reserve Your Spot</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Upcoming Sessions Modal -->
+  <div class="modal-overlay" id="sessionsModal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="sessionsModalTitle">
+      <div class="modal-header">
+        <h3 class="modal-title" id="sessionsModalTitle">Upcoming Sessions</h3>
+        <button class="modal-close" id="sessionsModalClose" aria-label="Close">Close</button>
+      </div>
+
+      <div class="modal-body">
+        <p><strong>Community Launch Event</strong></p>
+
+        <div class="modal-list">
+          <div><strong>When:</strong> January 31st</div>
+          <div><strong>Where:</strong> To be determined</div>
+          <div><strong>What:</strong> 2 hrs of small-sided games + Kings of the Pitch</div>
+        </div>
+
+        <p style="opacity:.85;">
+          We’re on a mission to bring the beautiful game back to the community, one session at a time.
+          Join us for our launch event and be part of something special. Spots are limited!
+        </p>
+
+        <div class="modal-cta">
+          <a class="btn btn-primary" href="#signup" id="sessionsModalCta">Reserve Your Spot</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sponsor Modal -->
+  <div class="modal-overlay" id="sponsorModal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="sponsorModalTitle">
+      <div class="modal-header">
+        <h3 class="modal-title" id="sponsorModalTitle">Sponsor</h3>
+        <button class="modal-close" id="sponsorModalClose" aria-label="Close">Close</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="sponsor-modal">
+          <img id="sponsorModalLogo" class="sponsor-modal-logo" alt="" />
+          <div>
+            <p id="sponsorModalDesc" class="sponsor-modal-desc"></p>
+
+            <div class="modal-cta">
+              <a id="sponsorModalLink" class="btn btn-primary" href="#" target="_blank" rel="noopener">
+                Learn More
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/sections.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
 </html>
