@@ -144,6 +144,9 @@ function initSponsorModalOnce() {
     const card = e.target.closest(".sponsor-card");
     if (!card) return;
 
+    // ✅ Only needed if sponsors are <a href="..."> (marquee tiles)
+    if (card.tagName === "A") e.preventDefault();
+
     open({
       name: card.dataset.name,
       logo: card.dataset.logo,
@@ -152,6 +155,40 @@ function initSponsorModalOnce() {
     });
   });
 }
+
+
+function initSponsorsMarquee() {
+  const track = document.querySelector(".marquee-track");
+  if (!track) return;
+
+  if (track.dataset.cloned === "true") return;
+  track.dataset.cloned = "true";
+
+  // Get original items
+  const items = Array.from(track.children);
+
+  // Deduplicate by sponsor name (safety)
+  const seen = new Set();
+  const uniqueItems = items.filter(el => {
+    const name = el.dataset.name;
+    if (!name || seen.has(name)) return false;
+    seen.add(name);
+    return true;
+  });
+
+  // Reset track to clean originals
+  track.innerHTML = "";
+  uniqueItems.forEach(el => track.appendChild(el));
+
+  // Clone once — SAME ORDER
+  uniqueItems.forEach(el => {
+    track.appendChild(el.cloneNode(true));
+  });
+}
+
+
+
+
 
 /* ---------------------------
    Init
@@ -180,5 +217,6 @@ document.addEventListener("DOMContentLoaded", () => {
 // injected sections
 window.addEventListener("sections:loaded", () => {
   applyCardBackgrounds();  
-  initSponsorModalOnce();     
+  initSponsorModalOnce();    
+  initSponsorsMarquee(); 
 });

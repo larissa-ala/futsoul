@@ -814,3 +814,111 @@ input:focus, select:focus{
     text-align: left;
   }
 }
+
+/* Sponsors marquee wrapper */
+.sponsors-marquee{
+  margin-top: 16px;
+}
+
+/* Marquee window */
+.marquee{
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 8px 0;
+}
+
+/* Soft edge fade */
+.marquee::before,
+.marquee::after{
+  content:"";
+  position:absolute;
+  top:0;
+  width: 80px;
+  height: 100%;
+  z-index: 2;
+  pointer-events:none;
+}
+
+.marquee::before{
+  left:0;
+  background: linear-gradient(to right, var(--bg), rgba(7,7,7,0));
+}
+
+.marquee::after{
+  right:0;
+  background: linear-gradient(to left, var(--bg), rgba(7,7,7,0));
+}
+
+/* Track */
+.marquee-track{
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: max-content;
+  will-change: transform;
+  animation: sponsorScroll 26s linear infinite;
+}
+
+@keyframes sponsorScroll{
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+
+/* Pause on hover */
+.marquee:hover .marquee-track{
+  animation-play-state: paused;
+}
+
+/* Tile style (matches your sponsor-card vibe) */
+.sponsor-tile{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: unset;            /* 🔥 key */
+  height: auto;                /* 🔥 key */
+  padding: 10px 14px;           /* tighter hug */
+
+  border-radius: 999px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.10);
+  text-decoration: none;
+
+  transition: transform .18s ease,
+              border-color .18s ease,
+              background .18s ease;
+}
+
+
+.sponsor-tile:hover{
+  transform: translateY(-2px);
+  border-color: rgba(255,106,0,0.55);
+  background: rgba(255,106,0,0.08);
+}
+
+.sponsor-tile img{
+  max-height: 32px;
+  max-width: 140px;
+  width: auto;
+  height: auto;
+  opacity: .95;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .marquee-track{ animation: none; }
+}
+
+/* Mobile */
+@media (max-width: 520px){
+  .sponsor-tile{ min-width: 170px; height: 64px; }
+  .sponsor-tile img{ max-height: 30px; max-width: 130px; }
+}
+
+.marquee{
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
