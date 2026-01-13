@@ -26,7 +26,7 @@
         <a href="#about">About</a>
         <a href="#winners">KOTP</a>
         <a href="#signup">Session Sign Up</a>
-        <a href="#sponsors">Sponsors</a>
+        <a href="#sponsors">Partners</a>
         <a href="#contact">Contact</a>
       </nav>
 
@@ -66,7 +66,9 @@
   <!-- Section Mount Points -->
   <div id="mount-about"></div>
   <div id="mount-kotp"></div>
-  <div id="mount-signup"></div>
+  <section id="signup" class="section section-signup">
+    <div class="container" id="mount-signup"></div>
+  </section>
   <div id="mount-sponsors"></div>
 
   <!-- Footer -->
@@ -102,7 +104,7 @@
 
         <div class="modal-list">
           <div><strong>Format:</strong> First to 3 goals or 5 minutes — winners stay on; ties mean both teams rotate off</div>
-          <div><strong>Teams:</strong> 4v4 / 5v5 — teams are made on site</div>
+          <div><strong>Teams:</strong> 3v3 / 4v4 / 5v5 — teams are made on site</div>
           <div><strong>All levels:</strong> Everyone welcome</div>
           <div><strong>Compete:</strong> Play to become the <em>Kings of the Pitch</em></div>
         </div>
@@ -114,35 +116,48 @@
     </div>
   </div>
 
-  <!-- Upcoming Sessions Modal -->
-  <div class="modal-overlay" id="sessionsModal" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="sessionsModalTitle">
-      <div class="modal-header">
-        <h3 class="modal-title" id="sessionsModalTitle">Upcoming Sessions</h3>
-        <button class="modal-close" id="sessionsModalClose" aria-label="Close">Close</button>
+<!-- Upcoming Sessions Modal -->
+<div class="modal-overlay" id="sessionsModal" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="sessionsModalTitle">
+    <div class="modal-header">
+      <h3 class="modal-title" id="sessionsModalTitle">Upcoming Sessions</h3>
+      <button class="modal-close" id="sessionsModalClose" aria-label="Close">Close</button>
+    </div>
+
+    <div class="modal-body">
+      <p><strong>Community Launch Fundraiser</strong></p>
+
+      <div class="modal-list">
+        <div><strong>When:</strong> January 31st (12 – 1 pm and 1 – 2 pm)</div>
+        <div><strong>Where:</strong> To be determined</div>
+        <div>
+          <strong>What:</strong>
+          2 sessions, 1 KOTP. Winners from the first session will stay to play in the second to defend their KOTP title.
+        </div>
+        <div>
+          <strong>Cost:</strong>
+          $10 (supports field rental and equipment for future sessions)
+        </div>
       </div>
 
-      <div class="modal-body">
-        <p><strong>Community Launch Fundraiser Event</strong></p>
+      <p style="opacity:.85;">
+        We’re on a mission to bring the beautiful game back to the community, one session at a time.
+        This fundraiser event will help set us up for success as we launch regular sessions in the coming weeks.
+        Join us for our launch event and be part of something special. Spots are limited!
+      </p>
 
-        <div class="modal-list">
-          <div><strong>When:</strong> January 31st</div>
-          <div><strong>Where:</strong> To be determined</div>
-          <div><strong>What:</strong> 2 hrs of small-sided games + Kings of the Pitch</div>
-        </div>
-
-        <p style="opacity:.85;">
-          We’re on a mission to bring the beautiful game back to the community, one session at a time.
-          This fundraiser event will help set us up for success as we launch regular sessions in the coming weeks.
-          Join us for our launch event and be part of something special. Spots are limited!
-        </p>
-
-        <div class="modal-cta">
-          <a class="btn btn-primary" href="#signup" id="sessionsModalCta">Reserve Your Spot</a>
-        </div>
+      <div class="session-cta-row">
+        <a class="btn btn-primary" href="https://partiful.com/e/YOUR-LAUNCH-LINK-1" target="_blank" rel="noopener">
+          Session 1 Sign Up
+        </a>
+        <a class="btn btn-primary" href="https://partiful.com/e/YOUR-LAUNCH-LINK-2" target="_blank" rel="noopener">
+          Session 2 Sign Up
+        </a>
       </div>
     </div>
   </div>
+</div>
+
 
   <!-- Sponsor Modal -->
   <div class="modal-overlay" id="sponsorModal" aria-hidden="true">

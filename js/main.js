@@ -214,9 +214,61 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// injected sections
+/* ---------------------------
+   Featured Launch Session
+--------------------------- */
+
+const featuredSessions = [
+  {
+    title: "Session 1",
+    day: "Saturday",
+    date: "Jan 31",
+    time: "12 pm - 1 pm",
+    location: "East Bay (TBD)",
+    price: "$10",
+    spots: "Limited spots",
+    link: "https://partiful.com/e/YOUR-LAUNCH-LINK-1"
+  },
+  {
+    title: "Session 2",
+    day: "Saturday",
+    date: "Jan 31",
+    time: "1 pm - 2 pm",
+    location: "East Bay (TBD)",
+    price: "$10",
+    spots: "Limited spots",
+    link: "https://partiful.com/e/YOUR-LAUNCH-LINK-2"
+  }
+];
+
+
+function initFeaturedSession() {
+  const el = document.getElementById("featuredSession");
+  if (!el) return;
+  if (el.dataset.bound === "true") return;
+  el.dataset.bound = "true";
+
+  el.classList.remove("featured-session"); // prevent nested styling
+  el.innerHTML = featuredSessions.map(s => `
+    <div class="featured-session" style="margin-bottom:12px;">
+      <h4 class="featured-title">${s.title}</h4>
+      <p class="featured-meta">
+        <strong>${s.day}</strong> • ${s.date} • ${s.time}<br>
+        ${s.location}
+      </p>
+      <div class="featured-row">
+        <span class="badge">${s.price} • ${s.spots}</span>
+        <a class="reserve" href="${s.link}" target="_blank" rel="noopener">Reserve</a>
+      </div>
+    </div>
+  `).join("");
+}
+
+
+
 window.addEventListener("sections:loaded", () => {
-  applyCardBackgrounds();  
-  initSponsorModalOnce();    
-  initSponsorsMarquee(); 
+  applyCardBackgrounds();
+  initSponsorModalOnce();
+  initSponsorsMarquee();
+  initFeaturedSession(); 
 });
