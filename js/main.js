@@ -224,20 +224,20 @@ const featuredSessions = [
     day: "Saturday",
     date: "Jan 31",
     time: "12 pm - 1 pm",
-    location: "East Bay (TBD)",
+    location: "Street Soccer USA SF Fields at East Cut",
     price: "$10",
-    spots: "Limited spots",
-    link: "https://partiful.com/e/YOUR-LAUNCH-LINK-1"
+    spots: "30 total spots",
+    link: "https://partiful.com/e/ecZAakLEdw3LcLONksJI"
   },
   {
     title: "Session 2",
     day: "Saturday",
     date: "Jan 31",
     time: "1 pm - 2 pm",
-    location: "East Bay (TBD)",
+    location: "Street Soccer USA SF Fields at East Cut",
     price: "$10",
-    spots: "Limited spots",
-    link: "https://partiful.com/e/YOUR-LAUNCH-LINK-2"
+    spots: "25 total spots",
+    link: "https://partiful.com/e/mdOjDXN8aYD19EmHjB4Q"
   }
 ];
 
