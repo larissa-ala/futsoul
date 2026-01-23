@@ -227,7 +227,7 @@ const featuredSessions = [
     location: "Street Soccer USA SF Fields at East Cut",
     price: "$10",
     spots: "Spots are limited!",
-    link: "https://partiful.com/e/ecZAakLEdw3LcLONksJI"
+    link: "https://www.paypal.com/ncp/payment/P369522Z6PXGL"
   },
 ];
 
