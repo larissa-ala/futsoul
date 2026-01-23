@@ -223,22 +223,12 @@ const featuredSessions = [
     title: "Session 1",
     day: "Saturday",
     date: "Jan 31",
-    time: "12 pm - 1 pm",
+    time: "12 pm - 2 pm",
     location: "Street Soccer USA SF Fields at East Cut",
     price: "$10",
     spots: "30 total spots",
     link: "https://partiful.com/e/ecZAakLEdw3LcLONksJI"
   },
-  {
-    title: "Session 2",
-    day: "Saturday",
-    date: "Jan 31",
-    time: "1 pm - 2 pm",
-    location: "Street Soccer USA SF Fields at East Cut",
-    price: "$10",
-    spots: "30 total spots",
-    link: "https://partiful.com/e/mdOjDXN8aYD19EmHjB4Q"
-  }
 ];
 
 
