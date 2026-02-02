@@ -214,7 +214,7 @@ body{
   inset:0;
   background-image:
     linear-gradient(90deg, rgba(0,0,0,.72), rgba(0,0,0,.35)),
-    url("../assets/hero.png");
+    url("../assets/bg.jpg");
   background-size: cover;
   background-position: center;
   filter: saturate(1.05) contrast(1.05);
@@ -411,11 +411,13 @@ body{
   box-shadow: 0 0 0 1px rgba(255,106,0,.15), 0 14px 40px rgba(255,106,0,.10);
 }
 .card-img{
-  height: 160px;
+  width: 100%;
+  aspect-ratio: 4 / 5;   /* taller, portrait-friendly */
   background-size: cover;
   background-position: center;
   filter: contrast(1.05) saturate(1.05);
 }
+
 .card-body{ padding: 12px 12px 14px }
 .card-name{
   margin:0;
@@ -1027,8 +1029,9 @@ input:focus, select:focus{
 
 
 #featuredSession{
-  display:grid;
-  gap:12px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 12px;
 }
 
 .session-cta-row{

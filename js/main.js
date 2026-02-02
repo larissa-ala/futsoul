@@ -220,14 +220,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const featuredSessions = [
   {
-    title: "Session 1",
+    title: "FS Street Saturdays",
     day: "Saturday",
-    date: "Jan 31",
+    date: "Feb 7",
+    time: "12 pm - 2 pm",
+    location: "Strawberry Creek Park (Berkeley)",
+    price: "$3 recommended donation",
+    spots: "Spots are limited!",
+    link: "https://partiful.com/e/wmZhciQb10gUnHjWjbFu"
+  },
+  {
+    title: "FutSoul Sundays",
+    day: "Sunday",
+    date: "Feb 8",
     time: "12 pm - 2 pm",
     location: "Street Soccer USA SF Fields at East Cut",
-    price: "$10",
+    price: "$5 recommended donation",
     spots: "Spots are limited!",
-    link: "https://www.paypal.com/ncp/payment/P369522Z6PXGL"
+    link: "https://partiful.com/e/sjSC5ZATh2Iu62kBEOn4"
   },
 ];
 
