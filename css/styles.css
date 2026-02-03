@@ -1003,6 +1003,7 @@ input:focus, select:focus{
   border: 1px solid rgba(255,106,0,.22);
   background: rgba(255,106,0,.08);
   padding: 14px;
+  margin-right: 20px;
 }
 
 .featured-title{
@@ -1024,10 +1025,8 @@ input:focus, select:focus{
   align-items:center;
   gap:10px;
   margin-top: 12px;
-
-  padding-right: 12px; 
+  flex-wrap: wrap;
 }
-
 
 
 #featuredSession{
